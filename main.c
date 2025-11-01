@@ -5,6 +5,8 @@
 
 // prototype
 int add_contact(const char* name, const char* phone, const char* note);
+int view_contact();
+int edit_contact();
 
 // funtion to get the string inputs
 void get_input(char* prompt, char* buffer, size_t size)
@@ -26,6 +28,9 @@ int main()
     while (app_running) {
         printf("*********** CONTACT MANAGER ***********\n");
         printf("1. Add Contact\n");
+        printf("2. View Contact List\n");
+        printf("3. Edit Contact\n");
+        printf("0. Exit\n");
         printf("Enter your choice >>>: ");
         get_input("", choice_str, sizeof(choice_str));
         choice = atoi(choice_str); // convert sting to int.
@@ -38,6 +43,18 @@ int main()
             get_input("Enter Note: ", note, sizeof(note));
 
             add_contact(name, phone, note);
+        }
+        // view contact list
+        if (2 == choice) {
+            view_contact();
+        }
+
+        if (3 == choice) {
+            printf("Debug\n");
+            edit_contact();
+        }
+        if (0 == choice) {
+            app_running = 0;
         }
     }
     return 0;

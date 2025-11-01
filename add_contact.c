@@ -10,7 +10,7 @@ int add_contact(const char* name, const char* phone, const char* note)
     if (SQLITE_OK != rc)
         return rc;
 
-    // create the query
+    // create the query to insert in the list.
     char sql[256];
     snprintf(sql, sizeof(sql),
         "INSERT INTO contacts (name, phone, note) VALUES ('%s', '%s', '%s');",
